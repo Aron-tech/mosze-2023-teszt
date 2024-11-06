@@ -4,25 +4,31 @@ constexpr int N_ELEMENTS = 100;
 
 int main()
 {
-    
-    int *b = new int[NELEMENTS]; // Hiba: NELEMENTS helyett N_ELEMENTS
-    std::cout << '1-100 ertekek duplazasa' //Hiba: ';' hiányzik
-    for (int i = 0;) // Hiba: A for hibásan van definiálva.
+    int *b = new int[N_ELEMENTS];
+    std::cout << "1-100 ertekek duplazasa" << std::endl;
+
+    for (int i = 0; i < N_ELEMENTS; i++)
     {
         b[i] = i * 2;
     }
-    for (int i = 0; i; i++)
+
+    for (int i = 0; i < N_ELEMENTS; i++)
     {
-        std::cout << "Ertek:"
-    }    
-    std::cout << "Atlag szamitasa: " << std::endl;
-    int atlag; // Hiba: Az átlag változónak megkell adni kezdő értéket.
-    for (int i = 0; i < N_ELEMENTS, i++)
-    {
-        atlag += b[i] //Hiba: ';' hiányzik
+        std::cout << "Ertek: " << b[i] << std::endl;
     }
+
+    std::cout << "Atlag szamitasa: " << std::endl;
+    int atlag = 0;
+
+    for (int i = 0; i < N_ELEMENTS; i++)
+    {
+        atlag += b[i];
+    }
+
     atlag /= N_ELEMENTS;
     std::cout << "Atlag: " << atlag << std::endl;
-    //Hiba: Lefoglalt dinamikus memória felszabadítása hiányzik
+    
+    delete[] b;
+
     return 0;
 }
