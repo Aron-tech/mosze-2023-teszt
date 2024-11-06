@@ -30,5 +30,7 @@ int main()
     
     delete[] b;
 
+    std::cout << "Program vége" << std::endl;
+
     return 0;
 }
